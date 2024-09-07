@@ -3,8 +3,12 @@ def main():
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     char_count = count_chars(text)
+    print("--- Begin report of books/frankenstein.txt ---")
     print(f"{num_words} words found in the document")
-    print(char_count)
+    for key, val in sorted(char_count.items(), key=lambda item: item[1], reverse=True):
+        if key.isalpha() == False:
+            continue
+        print(f"The {key} character was found {val} times")
 
 
 def get_num_words(text):

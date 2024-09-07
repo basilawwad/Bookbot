@@ -5,7 +5,9 @@ def main():
     char_count = count_chars(text)
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{num_words} words found in the document")
-    for key, val in char_count.items():
+    for key, val in sorted(char_count.items(), key=lambda item: item[1], reverse=True):
+        if key.isalpha() == False:
+            continue
         print(f"The {key} character was found {val} times")
 
 
